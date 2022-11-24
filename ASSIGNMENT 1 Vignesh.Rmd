@@ -1,0 +1,115 @@
+---
+title: "MACHINE LEARNING ASSIGNMENT 1"
+author: "VIGNESH.S"
+date: '2022-08-24'
+output:
+  html_document: default
+  pdf_document: default
+---
+## package use as ISLR
+```{r}
+library(ISLR)
+```
+
+1.	This exercise involves the Auto data set studied in the lab. Make sure that the missing values have been removed from the data.
+
+ (a) Which of the predictors are quantitative, and which are qualitative?
+Ans:
+
+```{r}
+Auto
+```
+
+```{r}
+str(Auto)
+```
+
+(b) What is the range of each quantitative predictor? You can answer this using the range() function.
+Ans:
+
+```{r}
+summary(Auto[, -c( 9)])
+```
+
+
+(c) What is the mean and standard deviation of each quantitative predictor? 
+Ans:
+
+```{r}
+sapply(Auto[, -c( 9)], mean)
+```
+
+```{r}
+sapply(Auto[, -c( 9)], sd)
+```
+
+
+(d)	 Now remove the 10th through 85th observations. What is the range, mean, and standard deviation of each predictor in the subset of the data that remains? 
+Ans:
+
+```{r}
+upto85  <- Auto[-c(10:85), -c(9)]
+sapply(upto85, range)
+```
+
+```{r}
+average <- Auto[-c(10:85), -c(9)]
+sapply(average, range)
+```
+
+```{r}
+standard <- Auto[-c(10:85), -c(9)]
+sapply(standard, range)
+```
+
+
+```{r}
+sapply(upto85, mean)
+```
+
+
+```{r}
+sapply(upto85, sd)
+```
+
+(e)	Using the full data set, investigate the predictors graphically, using scatter plots or other tools of your choice. Create some plots highlighting the relationships among the predictors. Comment on your findings.
+Ans:
+
+```{r}
+pairs(Auto)
+```
+
+(f) Suppose that we wish to predict gas mileage (mpg) on the basis of the other variables. Do your plots suggest that any of the other variables might be useful in predicting mpg? Justify your answer.
+Ans:
+
+```{r}
+cor(Auto$weight, Auto$horsepower)
+```
+
+
+```{r}
+cor(Auto$weight, Auto$displacement)
+```
+
+```{r}
+cor(Auto$displacement, Auto$horsepower)
+```
+
+
+```{r}
+cor(Auto$cylinders, Auto$horsepower)
+```
+
+
+```{r}
+cor(Auto$cylinders, Auto$displacement)
+```
+
+```{r}
+cor(Auto$cylinders, Auto$weight)
+```
+
+
+
+                        
+                            
